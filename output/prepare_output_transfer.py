@@ -45,15 +45,15 @@ if "NIH_GLOBUS" not in os.environ:
 ########################################################################################################
 
 
-print(["globus", "ls", os.environ["NIH_GLOBUS"] + ":~"])
-
-globus_login_check = str(subprocess.check_output(["globus", "ls", os.environ["NIH_GLOBUS"] + ":/~"]))
-
-if "Globus CLI Error" in globus_login_check:
-    print("globus login check: FAIL, need to 'globus login' first")
-    exit(1)
-else:
-    print("globus login check: GOOD")
+# print(["globus", "ls", os.environ["NIH_GLOBUS"] + ":~"])
+#
+# globus_login_check = str(subprocess.check_output(["globus", "ls", os.environ["NIH_GLOBUS"] + ":/~"]))
+#
+# if "Globus CLI Error" in globus_login_check:
+#     print("globus login check: FAIL, need to 'globus login' first")
+#     exit(1)
+# else:
+#     print("globus login check: GOOD")
 
 # globus_login_check = str(subprocess.check_output(["globus", "ls", os.environ["FRNU56_GLOBUS"] + ":/~"]))
 
@@ -176,9 +176,9 @@ for idx, src in enumerate(srcs):
             new_batch.write("\n")
             transfer_count += 1
 
-        new_bash.write("if [ ! -d \"" + dest_sess_level + "\" ]; then\n")
-        new_bash.write("mkdir -p " + dest_sess_level + "\n")
-        new_bash.write("fi\n")
+        # new_bash.write("if [ ! -d \"" + dest_sess_level + "\" ]; then\n")
+        # new_bash.write("mkdir -p " + dest_sess_level + "\n")
+        # new_bash.write("fi\n")
 
     # look for lfp results
     src_glob = glob.glob(src + "/*/lfp/outputs")
@@ -205,12 +205,12 @@ for idx, src in enumerate(srcs):
             new_batch.write("\n")
             transfer_count += 1
 
-        # if the session has spike outputs, this bash command would have been written above
-        if sess not in sort_src_sessions:
-
-            new_bash.write("if [ ! -d \"" + dest_sess_level + "\" ]; then\n")
-            new_bash.write("mkdir -p " + dest_sess_level + "\n")
-            new_bash.write("fi\n")
+        # # if the session has spike outputs, this bash command would have been written above
+        # if sess not in sort_src_sessions:
+        #
+        #     new_bash.write("if [ ! -d \"" + dest_sess_level + "\" ]; then\n")
+        #     new_bash.write("mkdir -p " + dest_sess_level + "\n")
+        #     new_bash.write("fi\n")
 
 # now write the tranfer bash command
 new_bash.write("globus transfer ")
