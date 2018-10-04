@@ -127,7 +127,7 @@ if __name__ == "__main__":
 
 			session_fileset.update({"subj": subjname})
 			session_fileset.update({"session_path": current_sess_path})
-			session_fileset.update({"session_name": current_sess_path.split("/")[-1]})
+			session_fileset.update({"session_name": current_sess_path.split("/")[-1] + "_" + current_sess_nsp})
 
 			session_fileset.update({"ns6": ""})
 			session_fileset.update({"ns6_filesize": 0})

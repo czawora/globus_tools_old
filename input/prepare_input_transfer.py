@@ -443,13 +443,13 @@ if __name__ == "__main__":
 
 	new_bash.write("#!/usr/bin/bash\n\n")
 
-	for sess in current_upload_list:
-
-		current_mkdir = biowulf_dest_path + "/" + sess["session_name"]
-
-		new_bash.write("if [ ! -d " + current_mkdir + " ]; then\n")
-		new_bash.write("mkdir -p -m 777 " + current_mkdir + "\n")
-		new_bash.write("fi\n")
+	# for sess in current_upload_list:
+	#
+	# 	current_mkdir = biowulf_dest_path + "/" + sess["session_name"]
+	#
+	# 	new_bash.write("if [ ! -d " + current_mkdir + " ]; then\n")
+	# 	new_bash.write("mkdir -p -m 777 " + current_mkdir + "\n")
+	# 	new_bash.write("fi\n")
 
 	#now write the transfer bash command
 	new_bash.write("globus transfer ")
